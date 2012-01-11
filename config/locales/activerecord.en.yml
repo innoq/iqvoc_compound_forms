@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    models:
+      compound_form/base:
+        one:   Compound Form
+        other: Compound Forms
+      compound_form/content/base:
+        one:   Compound In
+        other: Compound In

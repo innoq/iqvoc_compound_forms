@@ -1,0 +1,12 @@
+en:
+  txt:
+    models:
+      label:
+        compound_form_contents_error: Each composition must have at least two components.
+    views:
+      labels:
+        compound_from: Compound from
+        compound_in: Compound in
+      widget:
+        delete_compound_form: Delete Composition
+        create_compound_form: Add Composition

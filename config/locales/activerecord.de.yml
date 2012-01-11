@@ -1,0 +1,9 @@
+de:
+  activerecord:
+    models:
+      compound_form/base:
+        one:   Zusammensetzung
+        other: Zusammensetzungen
+      compound_form/content/base:
+        one:   Zusammengesetzt in
+        other: Zusammengesetzt in

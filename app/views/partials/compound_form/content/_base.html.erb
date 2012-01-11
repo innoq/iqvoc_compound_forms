@@ -1,0 +1,8 @@
+<div class="relation">
+  <h4><%= t("txt.views.labels.compound_in") %></h4>
+  <div class="relation-body">
+    <%= raw label.compound_in.map { |label|
+            link_to(label.value, label_path(:id => label))
+        }.join(', ') %>
+  </div>
+</div>

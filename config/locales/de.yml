@@ -1,0 +1,12 @@
+de:
+  txt:
+    models:
+      label:
+        compound_form_contents_error: Eine Zusammensetzung muss aus min. 2 Labels bestehen.
+    views:
+      labels:
+        compound_from: Zusammengesetzt aus
+        compound_in: Zusammengesetzt in
+      widget:
+        delete_compound_form: Zusammensetzung löschen
+        create_compound_form: Neue Zusammensetzung
