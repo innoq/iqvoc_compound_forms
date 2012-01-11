@@ -1,0 +1,30 @@
+<% socket = [
+  "/tmp/mysql.sock",
+  "/opt/local/var/run/mysql5/mysqld.sock",
+  "/tmp/mysqld.sock",
+  "/var/run/mysqld.sock"
+].detect { |socket| File.exist?(socket) } %>
+
+defaults: &defaults
+  encoding: utf8
+
+development:
+  <<: *defaults
+  adapter: sqlite3
+  database: db/dev.sqlite
+
+# Warning: The database defined as 'test' will be erased and
+# re-generated from your development database when you run 'rake'.
+# Do not set this db to the same as development or production.
+test:
+  <<: *defaults
+  adapter: sqlite3
+  database: db/test.sqlite
+
+production:
+  <<: *defaults
+  adapter: mysql2
+  socket: <%= socket %>
+  username:
+  password:
+  database: iqvoc_compound_forms

@@ -1,0 +1,7 @@
+/Gemfile.lock
+/.bundle
+/log
+/tmp
+/db/*.sqlite
+/config/database.yml
+/config/initializers/secret_token.rb
