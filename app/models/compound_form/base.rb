@@ -45,6 +45,3 @@ class CompoundForm::Base < ActiveRecord::Base
   end
 
 end
-
-# integrate with Label -- XXX: down here to avoid load-order issues; hacky!?
-require 'iqvoc_skosxl/label_extensions' # XXX: bad (ambiguous) name
