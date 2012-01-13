@@ -30,7 +30,7 @@ if Iqvoc::CompoundForms.const_defined?(:Application)
     config.assets.compress = false
 
     # Expands the lines which load the assets
-    config.assets.debug = true
+    config.assets.debug = false
 
     # The JDBC driver URL for the connection to the virtuoso triple store.
     # Login credentials have to be stored here too. See
