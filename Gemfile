@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
-gem 'iqvoc', :path => '../iqvoc' # TODO: local path should be optional
-gem 'iqvoc_skosxl', :path => '../iqvoc_skosxl' # TODO: local path should be optional
+gem 'iqvoc',        '~> 3.3.3'
+gem 'iqvoc_skosxl', '~> 1.1.3'
 
 group :development, :test do
   gem 'sqlite3'
