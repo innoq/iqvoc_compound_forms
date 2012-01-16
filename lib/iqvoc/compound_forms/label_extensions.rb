@@ -2,7 +2,7 @@
 
 require "active_support/concern"
 
-module LabelExtensions
+module Iqvoc::CompoundForms::LabelExtensions
   extend ActiveSupport::Concern
 
   included do
