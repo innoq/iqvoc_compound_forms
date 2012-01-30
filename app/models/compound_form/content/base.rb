@@ -2,7 +2,7 @@
 
 class CompoundForm::Content::Base < ActiveRecord::Base
 
-  set_table_name 'compound_form_contents'
+  self.table_name ='compound_form_contents'
 
   belongs_to :compound_form, :class_name => 'CompoundForm::Base', :foreign_key => 'compound_form_id'
   belongs_to :label,         :class_name => 'Label::Base', :foreign_key => 'label_id'

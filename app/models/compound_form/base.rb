@@ -5,7 +5,7 @@ class CompoundForm::Base < ActiveRecord::Base
   self.rdf_namespace = 'umt'
   self.rdf_predicate = 'compoundForm'
 
-  set_table_name 'compound_forms'
+  self.table_name ='compound_forms'
 
   belongs_to :domain, :class_name => 'Label::Base', :foreign_key => 'domain_id'
 

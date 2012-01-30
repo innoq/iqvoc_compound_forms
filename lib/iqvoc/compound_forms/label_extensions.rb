@@ -37,36 +37,35 @@ module Iqvoc::CompoundForms::LabelExtensions
     validate :compound_form_contents_size
   end
 
-  module InstanceMethods
-    def compound_in
-      CompoundForm::Base.joins(:compound_form_contents).
-          where(:compound_form_contents => { :label_id => id }).
-          includes(:domain).map(&:domain)
+  def compound_in
+    CompoundForm::Base.joins(:compound_form_contents).
+        where(:compound_form_contents => { :label_id => id }).
+        includes(:domain).map(&:domain)
+  end
+
+  # Serialized setters and getters (\r\n or , separated)
+  def inline_compound_form_origins
+    @inline_compound_form_origins || []
+  end
+
+  def inline_compound_form_origins=(value_collection)
+    # write to instance variable and write it on after_safe
+    @inline_compound_form_origins = []
+
+    value_collection.reject(&:blank?).each do |value|
+      @inline_compound_form_origins << value.split(/\r\n|, */).map(&:strip). # XXX: use Iqvoc::InlineDataHelper?
+          reject(&:blank?).uniq
     end
+  end
 
-    # Serialized setters and getters (\r\n or , separated)
-    def inline_compound_form_origins
-      @inline_compound_form_origins || []
-    end
-
-    def inline_compound_form_origins=(value_collection)
-      # write to instance variable and write it on after_safe
-      @inline_compound_form_origins = []
-
-      value_collection.reject(&:blank?).each do |value|
-        @inline_compound_form_origins << value.split(/\r\n|, */).map(&:strip). # XXX: use Iqvoc::InlineDataHelper?
-            reject(&:blank?).uniq
-      end
-    end
-
-    def compound_form_contents_size
-      if @full_validation
-        compound_forms.each do |cf|
-          if cf.compound_form_contents.count < 2
-            errors.add :base, I18n.t("txt.models.label.compound_form_contents_error")
-          end
+  def compound_form_contents_size
+    if @full_validation
+      compound_forms.each do |cf|
+        if cf.compound_form_contents.count < 2
+          errors.add :base, I18n.t("txt.models.label.compound_form_contents_error")
         end
       end
     end
   end
+
 end
