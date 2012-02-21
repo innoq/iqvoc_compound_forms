@@ -14,7 +14,9 @@ class CompoundForm::Base < ActiveRecord::Base
     :foreign_key => 'compound_form_id',
     :dependent   => :destroy
 
-  scope :published, includes(:domain).merge(Label::Base.published)
+  def self.published
+    includes(:domain).merge(Label::Base.published)
+  end
 
   def self.referenced_by(label_class)
     # To something with the label class

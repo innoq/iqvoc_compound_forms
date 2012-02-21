@@ -7,15 +7,15 @@ class CompoundForm::Content::Base < ActiveRecord::Base
   belongs_to :compound_form, :class_name => 'CompoundForm::Base', :foreign_key => 'compound_form_id'
   belongs_to :label,         :class_name => 'Label::Base', :foreign_key => 'label_id'
 
-  scope :label_published, lambda {
+  def self.label_published
     includes(:label).merge(Label::Base.published)
-  }
+  end
 
-  scope :target_in_edit_mode, lambda { |domain_id| {
-      :joins      => [:compound_form, :label],
-      :include    => :label,
-      :conditions => "(compound_forms.domain_id = #{domain_id}) AND (labels.locked_by IS NOT NULL)" }
-  }
+  def self.target_in_edit_mode(domain_id)
+    joins(:compound_form, :label).
+    includes(:label).
+    where("(compound_forms.domain_id = ?) AND (labels.locked_by IS NOT NULL)", domain_id)
+  end
 
   def self.referenced_by(label_class)
     # To something with the label class
