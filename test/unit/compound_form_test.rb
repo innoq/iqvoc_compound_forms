@@ -13,13 +13,13 @@ class CompoundFormTest < ActiveSupport::TestCase
   test "instance creation" do
     @compounds.each do |term, components|
       label = Iqvoc::XLLabel.base_class.create!(:value => term,
-          "origin" => OriginMapping.merge(term),
+          "origin" => Iqvoc::Origin.new(term).to_s,
           "language" => Iqvoc::Concept.pref_labeling_languages.first,
           "published_at" => 2.days.ago)
       label.compound_forms.create!(:compound_form_contents => components.
           each_with_index.map { |cterm, i|
             clabel = Iqvoc::XLLabel.base_class.create!(:value => cterm,
-                "origin" => OriginMapping.merge(cterm),
+                "origin" => Iqvoc::Origin.new(cterm).to_s,
                 "language" => Iqvoc::Concept.pref_labeling_languages.first,
                 "published_at" => 2.days.ago)
             CompoundForm::Content::Base.new(:label => clabel, :order => i)
@@ -48,7 +48,7 @@ class CompoundFormTest < ActiveSupport::TestCase
     }.flatten
     labels = terms.map { |term|
       Iqvoc::XLLabel.base_class.create!(:value => term,
-          "origin" => OriginMapping.merge(term),
+          "origin" => Iqvoc::Origin.new(term).to_s,
           "language" => Iqvoc::Concept.pref_labeling_languages.first,
           "published_at" => 2.days.ago)
     }
