@@ -1,4 +1,4 @@
-<%- label.compound_forms.build if label.compound_forms.empty? -%>
+<% label.compound_forms.build if label.compound_forms.empty? %>
 <% label.compound_forms.each do |compound_form| %>
     <%= render 'partials/compound_form/compound_form', :label => label, :compound_form => compound_form, :klass => klass %>
 <% end %>

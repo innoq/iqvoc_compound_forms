@@ -1,8 +1,8 @@
 source "http://rubygems.org"
 
 gem 'rails',        '~> 3.2.2'
-gem 'iqvoc',        '~> 3.5.1'#, :path => '../iqvoc'
-gem 'iqvoc_skosxl', '~> 1.2.0'#, :path => '../iqvoc_skosxl'
+gem 'iqvoc',        '~> 4.0.0'
+gem 'iqvoc_skosxl', '~> 2.0.0'
 
 group :development, :test do
   platforms :ruby do

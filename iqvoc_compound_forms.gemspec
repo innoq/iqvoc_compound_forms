@@ -16,8 +16,8 @@ Gem::Specification.new do |s|
   s.rubyforge_project = "iqvoc_compound_forms"
 
   s.add_dependency "rails", "~> 3.2.1"
-  s.add_dependency "iqvoc", "~> 3.5.1"
-  s.add_dependency "iqvoc_skosxl", "~> 1.2.0"
+  s.add_dependency "iqvoc", "~> 4.0.0"
+  s.add_dependency "iqvoc_skosxl", "~> 2.0.0"
 
   s.files = `git ls-files`.split("\n")
   s.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
