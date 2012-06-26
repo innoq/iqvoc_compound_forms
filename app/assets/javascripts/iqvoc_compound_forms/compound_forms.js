@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
   "use strict";
 
   $("input[type=button].add-compound-form").live("click", function(ev) {
-    var original = $(this).closest("li");
+    var original = $(this).closest(".compound-form");
     var clone = original.clone();
     var container = $("div.entity_select", clone);
     var el = $("input.entity_select", clone).

@@ -1,17 +1,17 @@
-<li class="compound-form">
+<div class="compound-form">
   <% items = Iqvoc::XLLabel.base_class.editor_selectable.
           by_origin(compound_form.compound_form_contents.
               map { |cfc| cfc.label.origin }) %>
   <% fieldname = "label[inline_compound_form_origins][]" %>
   <%= f.input fieldname, :label => t('txt.common.type_to_search') do %>
-    <%= f.text_field_tag fieldname, items.join(Iqvoc::InlineDataHelper::Joiner),
+    <%= text_field_tag fieldname, items.join(Iqvoc::InlineDataHelper::Joiner),
           :class => "entity_select",
           :"data-query-url" => labels_path(:format => :json),
           :"data-entity-uri" => label_path("{id}"),
           :"data-entities" => (not compound_form) ? nil : items.
               map { |l| label_widget_data(l) }.to_json %>
-  <% end %>
 
-  <input type="button" class="add-compound-form" value="<%= t("txt.common.add_note") %>">
-  <input type="button" class="rm-compound-form" value="<%= t("txt.common.delete") %>">
-</li>
+              <input type="button" class="btn add-compound-form" value="<%= t("txt.common.add_note") %>">
+              <input type="button" class="btn rm-compound-form" value="<%= t("txt.common.delete") %>">
+  <% end %>
+</div>
