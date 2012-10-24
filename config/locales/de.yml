@@ -10,3 +10,6 @@ de:
       widget:
         delete_compound_form: Zusammensetzung löschen
         create_compound_form: Neue Zusammensetzung
+      layouts:
+        sections:
+          compound_forms: Zusammensetzungen

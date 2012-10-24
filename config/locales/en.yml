@@ -10,3 +10,6 @@ en:
       widget:
         delete_compound_form: Delete Composition
         create_compound_form: Add Composition
+      layouts:
+        sections:
+          compound_forms: Compound Forms
