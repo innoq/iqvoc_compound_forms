@@ -1,8 +1,8 @@
 source "http://rubygems.org"
 
-gem 'rails',        '~> 3.2.2'
-gem 'iqvoc',        '~> 4.0.0'
-gem 'iqvoc_skosxl', '~> 2.0.0'
+gem 'rails', '~> 3.2.13'
+gem 'iqvoc', :git => 'git://github.com/innoq/iqvoc.git'
+gem 'iqvoc_skosxl', :git => 'git://github.com/innoq/iqvoc_skosxl.git'
 
 group :development, :test do
   platforms :ruby do
@@ -13,10 +13,4 @@ group :development, :test do
     gem 'activerecord-jdbcsqlite3-adapter'
     gem 'activerecord-jdbcmysql-adapter'
   end
-end
-
-group :test do
-  gem 'test-unit'
-  gem 'spork'
-  gem 'spork-testunit'
 end
