@@ -4,7 +4,7 @@
               map { |cfc| cfc.label.origin }) %>
   <% fieldname = "label[inline_compound_form_origins][]" %>
   <%= f.input fieldname, :label => t('txt.common.type_to_search') do %>
-    <%= text_field_tag fieldname, items.join(Iqvoc::InlineDataHelper::Joiner),
+    <%= text_field_tag fieldname, items.join(Iqvoc::InlineDataHelper::JOINER),
           :class => "entity_select",
           :"data-query-url" => labels_path(:format => :json),
           :"data-entity-uri" => label_path("{id}"),
