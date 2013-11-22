@@ -6,8 +6,8 @@ env:
   - DB=sqlite
   - DB=mysql
 
-before_script: ruby ./script/ci/travis_before_build.rb
-script: bundle exec rake iqvoc:setup:generate_secret_token db:drop db:create db:migrate test RAILS_ENV=test
+before_script: ./script/ci/travis_before_build.rb
+script: ./script/ci/travis_build.rb
 
 branches:
   only:
