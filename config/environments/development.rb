@@ -1,4 +1,3 @@
-require 'debug'
 require 'iqvoc/environments/development'
 
 if Iqvoc::CompoundForms.const_defined?(:Application)
