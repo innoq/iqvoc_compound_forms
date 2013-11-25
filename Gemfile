@@ -1,8 +1,7 @@
-source "http://rubygems.org"
+source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.13'
-gem 'iqvoc', :git => 'git://github.com/innoq/iqvoc.git'
-gem 'iqvoc_skosxl', :git => 'git://github.com/innoq/iqvoc_skosxl.git'
+gem 'iqvoc', :github => 'innoq/iqvoc'
+gem 'iqvoc_skosxl', :github => 'innoq/iqvoc_skosxl'
 
 group :development, :test do
   platforms :ruby do
