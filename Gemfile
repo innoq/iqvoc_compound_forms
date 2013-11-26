@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'iqvoc', :github => 'innoq/iqvoc'
-gem 'iqvoc_skosxl', :github => 'innoq/iqvoc_skosxl'
+gem 'iqvoc', '~> 4.2.0', :github => 'innoq/iqvoc'
+gem 'iqvoc_skosxl', '~> 2.2.0', :github => 'innoq/iqvoc_skosxl'
 
 group :development, :test do
   platforms :ruby do
