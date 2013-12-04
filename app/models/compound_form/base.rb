@@ -2,7 +2,7 @@
 
 class CompoundForm::Base < ActiveRecord::Base
   class_attribute :rdf_namespace, :rdf_predicate
-  self.rdf_namespace = 'umt'
+  self.rdf_namespace = 'iqvoc'
   self.rdf_predicate = 'compoundForm'
 
   self.table_name ='compound_forms'
@@ -43,7 +43,7 @@ class CompoundForm::Base < ActiveRecord::Base
   end
 
   def build_rdf(document, subject)
-    subject.Umt.compoundForm(compound_form_contents.map {|cfc| IqRdf::build_uri(cfc.label.origin) })
+    subject.send(rdf_namespace).send(rdf_predicate, compound_form_contents.map {|cfc| IqRdf::build_uri(cfc.label.origin) })
   end
 
 end
