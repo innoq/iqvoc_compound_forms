@@ -3,7 +3,7 @@
           by_origin(compound_form.compound_form_contents.
               map { |cfc| cfc.label.origin }) %>
   <% fieldname = "label[inline_compound_form_origins][]" %>
-  <%= f.input fieldname, :label => t('txt.common.type_to_search') do %>
+  <%= f.form_group nil, :label => { :text => t('txt.common.type_to_search') } do %>
     <%= text_field_tag fieldname, items.join(Iqvoc::InlineDataHelper::JOINER),
           :class => "entity_select",
           :"data-query-url" => labels_path(:format => :json),
@@ -11,7 +11,7 @@
           :"data-entities" => (not compound_form) ? nil : items.
               map { |l| label_widget_data(l) }.to_json %>
 
-              <input type="button" class="btn add-compound-form" value="<%= t("txt.common.add_note") %>">
-              <input type="button" class="btn rm-compound-form" value="<%= t("txt.common.delete") %>">
+              <input type="button" class="btn btn-default add-compound-form" value="<%= t("txt.common.add_note") %>">
+              <input type="button" class="btn btn-default rm-compound-form" value="<%= t("txt.common.delete") %>">
   <% end %>
 </div>
