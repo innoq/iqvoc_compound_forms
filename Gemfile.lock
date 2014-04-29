@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/innoq/iqvoc.git
-  revision: d54ad7146d28dcbe11c02b7e9acd8487b4b85f82
+  revision: c3fc0a549aca49cf2ab561b6ebecccf81bd81b05
   specs:
     iqvoc (4.4.0)
       apipie-rails
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/innoq/iqvoc_skosxl.git
-  revision: c3b5a6ade51e9a0088d7bd261e52a9545b1d91ab
+  revision: 8ffe3c0e36e36e37500792b62068ae15f7de5516
   specs:
     iqvoc_skosxl (2.4.0)
       bundler
@@ -140,7 +140,7 @@ GEM
     minitest (5.3.3)
     multi_json (1.9.3)
     multipart-post (2.0.0)
-    mysql2 (0.3.14)
+    mysql2 (0.3.15)
     net-http-persistent (2.9.4)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
@@ -231,7 +231,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.8)
+    sqlite3 (1.3.9)
     sxp (0.1.5)
     thor (0.19.1)
     thread_safe (0.3.3)
