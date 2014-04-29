@@ -1,6 +1,8 @@
 # initializer for both iqvoc and iqvoc_skosxl
 
-require 'iqvoc/xllabel' # XXX: this basically duplicates iqvoc_skosxl's initializer - but is required to ensure correct loading order!?
+# This basically duplicates iqvoc_skosxl's initializer — but is required to
+# ensure correct loading order!?
+require 'iqvoc/xllabel'
 
 Iqvoc.config.register_setting("title", "iQvoc Compound Forms")
 
