@@ -8,7 +8,7 @@ class CompoundForm::Content::Base < ActiveRecord::Base
   belongs_to :label,         :class_name => 'Label::Base', :foreign_key => 'label_id'
 
   def self.label_published
-    includes(:label).merge(Label::Base.published)
+    includes(:label).references(:labels).merge(Label::Base.published)
   end
 
   def self.target_in_edit_mode(domain_id)

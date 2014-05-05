@@ -15,7 +15,7 @@ class CompoundForm::Base < ActiveRecord::Base
     :dependent   => :destroy
 
   def self.published
-    includes(:domain).merge(Label::Base.published)
+    includes(:domain).references(:labels).merge(Label::Base.published)
   end
 
   def self.referenced_by(label_class)
