@@ -4,6 +4,8 @@ gem 'iqvoc', '~> 4.4.0', :github => 'innoq/iqvoc'
 gem 'iqvoc_skosxl', '~> 2.4.0', :github => 'innoq/iqvoc_skosxl'
 
 group :development, :test do
+  gem 'spring'
+  
   platforms :ruby do
     gem 'mysql2'
     gem 'sqlite3'
