@@ -1,7 +1,5 @@
 <http://hobbies.com#computer_programming> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
-<http://hobbies.com#computer_programming> <http://www.w3.org/2004/02/skos/core#prefLabel> "Computer programming"@en .
-<http://hobbies.com#computer_programming> <http://www.w3.org/2008/05/skos-xl#prefLabel> <http://hobbies.com#computer_programming-xl-preflabel-en> .
-<http://hobbies.com#computer_programming> <http://www.w3.org/2008/05/skos-xl#altLabel> <http://hobbies.com#computer_programming-xl-altlabel-en> .
+<http://hobbies.com#computer_programming> <http://www.w3.org/2008/05/skos-xl#prefLabel> <http://hobbies.com#computer_programming-en> .
 <http://hobbies.com#computer_programming-en> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2008/05/skos-xl#Label> .
 <http://hobbies.com#computer_programming-en> <http://www.w3.org/2008/05/skos-xl#literalForm> "Computer programming"@en .
 <http://hobbies.com#computer-en> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2008/05/skos-xl#Label> .
