@@ -1,20 +1,20 @@
 development:
   adapter: mysql2
-  database: iqvoc_skosxl_development
+  database: iqvoc_compound_forms_development
   username: root
   password:
   encoding: utf8
 
 test:
   adapter: mysql2
-  database: iqvoc_skosxl_test
+  database: iqvoc_compound_forms_test
   username: root
   password:
   encoding: utf8
 
 production:
   adapter: mysql2
-  database: iqvoc_skosxl_production
+  database: iqvoc_compound_forms_production
   username: root
   password:
   encoding: utf8
