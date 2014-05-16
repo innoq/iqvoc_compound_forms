@@ -5,7 +5,9 @@ gem 'iqvoc_skosxl', '~> 2.4.0', :github => 'innoq/iqvoc_skosxl'
 
 group :development, :test do
   gem 'spring'
-  
+  gem 'pry-rails'
+  gem 'awesome_print'
+
   platforms :ruby do
     gem 'mysql2'
     gem 'sqlite3'
