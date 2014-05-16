@@ -42,8 +42,11 @@ class CompoundForm::Base < ActiveRecord::Base
     "partials/compound_form/edit_base"
   end
 
+  def self.build_from_rdf(subject, predicate, object)
+    # binding.pry
+  end
+
   def build_rdf(document, subject)
     subject.send(rdf_namespace).send(rdf_predicate, compound_form_contents.map {|cfc| IqRdf::build_uri(cfc.label.origin) })
   end
-
 end
