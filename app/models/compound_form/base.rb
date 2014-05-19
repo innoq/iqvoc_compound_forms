@@ -42,11 +42,50 @@ class CompoundForm::Base < ActiveRecord::Base
     "partials/compound_form/edit_base"
   end
 
-  def self.build_from_rdf(subject, predicate, object)
-    # binding.pry
+  def self.build_from_rdf(rdf_subject, rdf_predicate, rdf_object)
+    unless rdf_subject.is_a? Label::SKOSXL::Base
+      raise "#{self.name}#build_from_rdf: Subject (#{rdf_subject}) must be a 'Label::SKOSXL::Base'"
+    end
+
+    target_class = Iqvoc::RDFAPI::PREDICATE_DICTIONARY[rdf_predicate] || self
+
+    ActiveRecord::Base.transaction do
+      begin
+        compound_form = target_class.create(domain: rdf_subject) # create compound form
+        create_compound_form_contents(rdf_object, compound_form, 0)
+      rescue Exception => e
+        ActiveRecord::Rollback
+        puts e
+      end
+    end
+
   end
 
   def build_rdf(document, subject)
     subject.send(rdf_namespace).send(rdf_predicate, compound_form_contents.map {|cfc| IqRdf::build_uri(cfc.label.origin) })
+  end
+
+  private
+
+  def self.create_compound_form_contents(rdf_object, compound_form, cfc_order_count)
+    rdf_object.each_with_index do |obj, i|
+      case obj.last
+        when String # normal
+          if obj.last =~ /^:(.*)$/
+            # we are responsible for this (e.g. :computer-de)
+            label = Iqvoc::XLLabel.base_class.by_origin(obj.last[1..-1]).last # find label by origin, strip out leading ':'
+
+            if label
+              compound_form_content = CompoundForm::Content::Base.create(label: label, compound_form: compound_form, order: cfc_order_count)
+              cfc_order_count += 1
+            else
+              raise "#{self.name}#create_compound_form_contents: Could not create compound form content. Cannot find label with origin '#{obj.last}'"
+            end
+          end
+        when Array # another blank note
+          # call recursively
+          create_compound_form_contents(obj.last, compound_form, cfc_order_count)
+      end
+    end
   end
 end
