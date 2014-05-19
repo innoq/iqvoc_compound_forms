@@ -54,8 +54,7 @@ class CompoundForm::Base < ActiveRecord::Base
         compound_form = target_class.create(domain: rdf_subject) # create compound form
         create_compound_form_contents(rdf_object, compound_form, 0)
       rescue Exception => e
-        ActiveRecord::Rollback
-        puts e
+        raise ActiveRecord::Rollback, e
       end
     end
 
