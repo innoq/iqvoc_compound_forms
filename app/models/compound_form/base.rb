@@ -52,7 +52,7 @@ class CompoundForm::Base < ActiveRecord::Base
     ActiveRecord::Base.transaction do
       begin
         compound_form = target_class.create(domain: rdf_subject) # create compound form
-        create_compound_form_contents(rdf_object, compound_form, 0)
+        create_compound_form_contents(rdf_object, compound_form)
       rescue Exception => e
         raise ActiveRecord::Rollback, e
       end
@@ -66,7 +66,7 @@ class CompoundForm::Base < ActiveRecord::Base
 
   private
 
-  def self.create_compound_form_contents(rdf_object, compound_form, cfc_order_count)
+  def self.create_compound_form_contents(rdf_object, compound_form)
     rdf_object.each do |obj|
       case obj.last
         when String # normal
@@ -75,15 +75,14 @@ class CompoundForm::Base < ActiveRecord::Base
             label = Iqvoc::XLLabel.base_class.by_origin(obj.last[1..-1]).last # find label by origin, strip out leading ':'
 
             if label
-              compound_form_content = CompoundForm::Content::Base.create(label: label, compound_form: compound_form, order: cfc_order_count)
-              cfc_order_count += 1
+              CompoundForm::Content::Base.create(label: label, compound_form: compound_form)
             else
               raise "#{self.name}#create_compound_form_contents: Could not create compound form content. Cannot find label with origin '#{obj.last}'"
             end
           end
         when Array # another blank note
           # call recursively
-          create_compound_form_contents(obj.last, compound_form, cfc_order_count)
+          create_compound_form_contents(obj.last, compound_form)
       end
     end
   end
