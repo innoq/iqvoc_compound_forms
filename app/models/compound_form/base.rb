@@ -67,7 +67,7 @@ class CompoundForm::Base < ActiveRecord::Base
   private
 
   def self.create_compound_form_contents(rdf_object, compound_form, cfc_order_count)
-    rdf_object.each_with_index do |obj, i|
+    rdf_object.each do |obj|
       case obj.last
         when String # normal
           if obj.last =~ /^:(.*)$/
