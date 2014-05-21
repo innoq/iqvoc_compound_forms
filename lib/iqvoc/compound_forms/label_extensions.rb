@@ -59,7 +59,7 @@ module Iqvoc::CompoundForms::LabelExtensions
   end
 
   def compound_form_contents_size
-    if @full_validation
+    if validatable_for_publishing?
       compound_forms.each do |cf|
         if cf.compound_form_contents.count < 2
           errors.add :base, I18n.t("txt.models.label.compound_form_contents_error")
