@@ -29,15 +29,16 @@ class SkosImporterTest < ActiveSupport::TestCase
     @importer.run
 
     assert_equal 1, CompoundForm::Base.count
-    assert_equal 2, CompoundForm::Content::Base.count
+    assert_equal 3, CompoundForm::Content::Base.count
 
     compound_form = CompoundForm::Base.first
     assert_equal 'computer_programming-en', compound_form.domain.origin
-    assert_equal 2, compound_form.compound_form_contents.size
+    assert_equal 3, compound_form.compound_form_contents.size
 
-    cfc1, cfc2 = *compound_form.compound_form_contents
+    cfc1, cfc2, cfc3 = *compound_form.compound_form_contents
     assert_equal 'computer-en', cfc1.label.origin
     assert_equal 'programming-en', cfc2.label.origin
+    assert_equal 'cool-en', cfc3.label.origin
   end
 
   test 'invalid compound forms import ' do
