@@ -10,16 +10,20 @@ module Iqvoc::CompoundForms::LabelExtensions
       # Compound forms
       # Only handle compound form creation if there are submitted widget values
       # Otherwise compound_forms would be destroyed on every save (e.g. in the branching process)!
-      if inline_compound_form_origins.present?
-        compound_forms.destroy_all
-        inline_compound_form_origins.each do |origin_collection|
-          compound_form_contents = []
-          origin_collection.each_with_index do |origin, index|
-            if label = Iqvoc::XLLabel.base_class.editor_selectable.by_origin(origin).last
-              compound_form_contents << CompoundForm::Content::Base.new(:label => label, :order => index)
+      if inline_compound_form_origins.any?
+        transaction do
+          compound_forms.destroy_all
+          inline_compound_form_origins.each do |origin_collection|
+            compound_form_contents = []
+            origin_collection.each_with_index do |origin, index|
+              if label = Iqvoc::XLLabel.base_class.editor_selectable.by_origin(origin).last
+                compound_form_contents << CompoundForm::Content::Base.new(:label => label, :order => index)
+              end
+            end
+            if compound_form_contents.any?
+              compound_forms.create!(:compound_form_contents => compound_form_contents)
             end
           end
-          compound_forms.create!(:compound_form_contents => compound_form_contents) if compound_form_contents.any?
         end
       end
     end
@@ -50,7 +54,7 @@ module Iqvoc::CompoundForms::LabelExtensions
 
   def inline_compound_form_origins=(value_collection)
     # write to instance variable and write it on after_safe
-    @inline_compound_form_origins = []
+    @inline_compound_form_origins ||= []
 
     value_collection.reject(&:blank?).each do |value|
       @inline_compound_form_origins << value.split(/\r\n|, */).map(&:strip). # XXX: use Iqvoc::InlineDataHelper?
