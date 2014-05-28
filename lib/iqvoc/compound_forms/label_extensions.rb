@@ -19,7 +19,7 @@ module Iqvoc::CompoundForms::LabelExtensions
               compound_form_contents << CompoundForm::Content::Base.new(:label => label, :order => index)
             end
           end
-          compound_forms.create!(:compound_form_contents => compound_form_contents)
+          compound_forms.create!(:compound_form_contents => compound_form_contents) if compound_form_contents.any?
         end
       end
     end
