@@ -51,7 +51,7 @@ class SkosImporterTest < ActiveSupport::TestCase
       <http://hobbies.com/computer-en> <http://www.w3.org/2008/05/skos-xl#literalForm> "Computer"@en .
       <http://hobbies.com/programming-en> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2008/05/skos-xl#Label> .
       <http://hobbies.com/programming-en> <http://www.w3.org/2008/05/skos-xl#literalForm> "Programming"@en .
-      <http://hobbies.com/computer_programming-en> <http://try.iqvoc.net/schema#compoundForm> _:b3 .
+      <http://hobbies.com/computer_programming-en> <http://try.iqvoc.net/schema#compoundFrom> _:b3 .
       _:b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
       _:b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://hobbies.com/computer-en> .
       _:b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:b4 .

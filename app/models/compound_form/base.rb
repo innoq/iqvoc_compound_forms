@@ -3,7 +3,7 @@
 class CompoundForm::Base < ActiveRecord::Base
   class_attribute :rdf_namespace, :rdf_predicate
   self.rdf_namespace = 'iqvoc'
-  self.rdf_predicate = 'compoundForm'
+  self.rdf_predicate = 'compoundFrom'
 
   self.table_name ='compound_forms'
 
