@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'iqvoc', '~> 4.4.0', :github => 'innoq/iqvoc'
-gem 'iqvoc_skosxl', '~> 2.4.0', :github => 'innoq/iqvoc_skosxl'
+gem 'iqvoc', '~> 4.6.0', :github => 'innoq/iqvoc'
+gem 'iqvoc_skosxl', '~> 2.5.0', :github => 'innoq/iqvoc_skosxl'
 
 group :development, :test do
   gem 'spring'
