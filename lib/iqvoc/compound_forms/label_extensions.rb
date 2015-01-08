@@ -57,7 +57,7 @@ module Iqvoc::CompoundForms::LabelExtensions
     @inline_compound_form_origins ||= []
 
     value_collection.reject(&:blank?).each do |value|
-      @inline_compound_form_origins << value.split(/\r\n|, */).map(&:strip). # XXX: use Iqvoc::InlineDataHelper?
+      @inline_compound_form_origins << value.split(/\r\n|, */).map(&:strip).
           reject(&:blank?).uniq
     end
   end
