@@ -47,7 +47,7 @@ class CompoundForm::Base < ActiveRecord::Base
       raise "#{self.name}#build_from_rdf: Subject (#{rdf_subject}) must be a 'Label::SKOSXL::Base'"
     end
 
-    target_class = Iqvoc::RDFAPI::PREDICATE_DICTIONARY[rdf_predicate] || self
+    target_class = RDFAPI::PREDICATE_DICTIONARY[rdf_predicate] || self
 
     ActiveRecord::Base.transaction do
       begin

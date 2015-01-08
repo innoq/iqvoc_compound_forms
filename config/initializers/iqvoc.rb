@@ -13,5 +13,5 @@ Iqvoc::XLLabel.additional_association_class_names.
 Iqvoc::XLLabel.view_sections += ["compound_forms"]
 
 ActiveSupport.on_load :skos_importer do
-  Iqvoc::SkosImporter.second_level_object_classes.delete(CompoundForm::Content::Base)
+  SkosImporter.second_level_object_classes.delete(CompoundForm::Content::Base)
 end

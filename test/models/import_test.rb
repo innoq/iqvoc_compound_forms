@@ -15,13 +15,12 @@
 # limitations under the License.
 
 require File.expand_path('../../test_helper', __FILE__)
-require 'iqvoc/skos_importer'
 
 class SkosImporterTest < ActiveSupport::TestCase
 
   test 'compound forms import' do
     test_data = File.open(File.expand_path('../../fixtures/hobbies.nt', __FILE__))
-    @importer = Iqvoc::SkosImporter.new(test_data, 'http://hobbies.com/')
+    @importer = SkosImporter.new(test_data, 'http://hobbies.com/')
 
     assert_equal 0, CompoundForm::Base.count
     assert_equal 0, CompoundForm::Content::Base.count
@@ -61,7 +60,7 @@ class SkosImporterTest < ActiveSupport::TestCase
     DATA
     ).split("\n")
 
-    @importer = Iqvoc::SkosImporter.new(test_data, 'http://hobbies.com/')
+    @importer = SkosImporter.new(test_data, 'http://hobbies.com/')
     assert_equal 0, CompoundForm::Base.count
     assert_equal 0, CompoundForm::Content::Base.count
 
