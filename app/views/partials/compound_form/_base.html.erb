@@ -1,10 +1,17 @@
 <div class="relation panel">
   <h2><%= t("txt.views.labels.compound_from") %></h2>
   <div class="relation-body">
-    <% label.send(klass.name.to_relation_name).each do |cf| %>
-      <%= raw cf.compound_form_contents.label_published.map { |cfc|
-        link_to(cfc.label.value, label_path(:id => cfc.label))
-      }.join(', ') %>
+    <% compound_form_bases = label.compound_form_bases.published %>
+    <% if compound_form_bases.any? %>
+      <ul>
+        <% compound_form_bases.each do |cfb| %>
+          <li>
+            <%= raw cfb.compound_form_contents.label_published.map { |cfc|
+              link_to(cfc.label.value, label_path(:id => cfc.label))
+            }.join(', ') %>
+        </li>
+      <% end %>
+      </ul>
     <% end %>
   </div>
 </div>

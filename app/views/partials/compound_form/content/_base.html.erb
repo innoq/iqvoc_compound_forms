@@ -1,8 +1,13 @@
 <div class="relation panel">
   <h2><%= t("txt.views.labels.compound_in") %></h2>
   <div class="relation-body">
-    <%= raw label.compound_in.map { |label|
-            link_to(label.value, label_path(:id => label))
-        }.join(', ') %>
+    <% compound_in = label.compound_in %>
+    <% if compound_in.any? %>
+      <ul>
+        <% compound_in.each do |label| %>
+          <li><%= link_to(label.value, label_path(:id => label)) %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>
