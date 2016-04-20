@@ -3,7 +3,7 @@
   <div class="relation-body">
     <% compound_form_bases = label.compound_form_bases %>
     <% if compound_form_bases.any? %>
-      <ul>
+      <ol>
         <% compound_form_bases.each do |cfb| %>
           <li>
             <%= raw cfb.compound_form_contents.label_published.map { |cfc|
@@ -11,7 +11,7 @@
             }.join(', ') %>
         </li>
       <% end %>
-      </ul>
+      </ol>
     <% end %>
   </div>
 </div>
