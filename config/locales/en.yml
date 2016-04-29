@@ -2,7 +2,8 @@ en:
   txt:
     models:
       label:
-        compound_form_contents_error: Each composition must have at least two components.
+        compound_form_contents_size_error: Each composition must have at least two components.
+        compound_form_contents_language_error: Each composition must have the same language as the main label.
     views:
       labels:
         compound_from: Compound from

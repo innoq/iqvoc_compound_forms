@@ -2,7 +2,8 @@ de:
   txt:
     models:
       label:
-        compound_form_contents_error: Eine Zusammensetzung muss aus min. 2 Labels bestehen.
+        compound_form_contents_size_error: Eine Zusammensetzung muss aus min. 2 Labels bestehen.
+        compound_form_contents_language_error: Zusammensetzungen müssen die Sprache des Haupt-Labels besitzen.
     views:
       labels:
         compound_from: Zusammengesetzt aus

@@ -39,6 +39,7 @@ module Iqvoc::CompoundForms::LabelExtensions
         :dependent  => :destroy
 
     validate :compound_form_contents_size
+    validate :compound_form_contents_languages
   end
 
   def compound_in
@@ -66,7 +67,18 @@ module Iqvoc::CompoundForms::LabelExtensions
     if validatable_for_publishing?
       compound_forms.each do |cf|
         if cf.compound_form_contents.count < 2
-          errors.add :base, I18n.t("txt.models.label.compound_form_contents_error")
+          errors.add :base, I18n.t("txt.models.label.compound_form_contents_size_error")
+        end
+      end
+    end
+  end
+
+  def compound_form_contents_languages
+    if validatable_for_publishing?
+      compound_form_contents.each do |cfc|
+        if cfc.label.language != language
+          errors.add :base, I18n.t("txt.models.label.compound_form_contents_language_error")
+          break
         end
       end
     end
