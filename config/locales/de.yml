@@ -4,6 +4,7 @@ de:
       label:
         compound_form_contents_size_error: Eine Zusammensetzung muss aus min. 2 Labels bestehen.
         compound_form_contents_language_error: Zusammensetzungen müssen die Sprache des Haupt-Labels besitzen.
+        compound_form_contents_self_reference_error: Eine Zusammensetzung darf nicht auf das Haupt-Label verweisen.
     views:
       labels:
         compound_from: Zusammengesetzt aus

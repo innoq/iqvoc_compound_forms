@@ -40,6 +40,7 @@ module Iqvoc::CompoundForms::LabelExtensions
 
     validate :compound_form_contents_size
     validate :compound_form_contents_languages
+    validate :compound_form_contents_self_reference
   end
 
   def compound_in
@@ -83,5 +84,15 @@ module Iqvoc::CompoundForms::LabelExtensions
       end
     end
   end
+
+  def compound_form_contents_self_reference
+    if validatable_for_publishing?
+      cfc_label_ids = compound_form_contents.map {|cfc| cfc.label_id }
+      if cfc_label_ids.include? published_version_id
+        errors.add :base, I18n.t("txt.models.label.compound_form_contents_self_reference_error")
+      end
+    end
+  end
+
 
 end
