@@ -44,9 +44,10 @@ module Iqvoc::CompoundForms::LabelExtensions
   end
 
   def compound_in
-    CompoundForm::Base.joins(:compound_form_contents).
-        where(:compound_form_contents => { :label_id => id }).
-        includes(:domain).map(&:domain)
+    # FIXME: sort with database function
+    CompoundForm::Base.joins(:compound_form_contents)
+      .where(:compound_form_contents => { :label_id => id })
+      .includes(:domain).map(&:domain).sort_by(&:value)
   end
 
   # Serialized setters and getters (\r\n or , separated)
