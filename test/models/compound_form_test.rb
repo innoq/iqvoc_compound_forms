@@ -25,18 +25,7 @@ class CompoundFormTest < ActiveSupport::TestCase
   end
 
   test "instance creation" do
-    @compounds.each do |term, components|
-      label = Iqvoc::XLLabel.base_class.create!(:value => term,
-          "language" => Iqvoc::Concept.pref_labeling_languages.first,
-          "published_at" => 2.days.ago)
-      label.compound_forms.create!(:compound_form_contents => components.
-          each_with_index.map { |cterm, i|
-            clabel = Iqvoc::XLLabel.base_class.create!(:value => cterm,
-                "language" => Iqvoc::Concept.pref_labeling_languages.first,
-                "published_at" => 2.days.ago)
-            CompoundForm::Content::Base.new(:label => clabel, :order => i)
-          })
-    end
+    create_compound_form_label(@compounds)
 
     assert_equal 4, Label::Base.count
     assert_equal 1, CompoundForm::Base.count
