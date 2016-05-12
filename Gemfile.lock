@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/innoq/iqvoc.git
-  revision: 55fe3f10c7208c3fa296a97428084de55966b202
+  revision: e6ce3fee7994247ce7f1377432c46698ea53f00e
   branch: master
   specs:
     iqvoc (4.9.0)
@@ -32,7 +32,7 @@ GIT
 
 GIT
   remote: git://github.com/innoq/iqvoc_skosxl.git
-  revision: d3a1cc3d6809f4c085d74c4c4ad29206742486af
+  revision: 9c01f08585926e901a6d233adcb073d96e135a11
   branch: master
   specs:
     iqvoc_skosxl (2.7.0)
