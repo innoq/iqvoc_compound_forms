@@ -44,4 +44,76 @@ class CompoundFormUITest < ActionDispatch::IntegrationTest
       assert page.has_content? 'Luftreinhaltungskosten'
     end
   end
+
+  test 'compound form ui removement' do
+    create_compound_form_label(
+      'Abtrennung und Transmutation radioaktiven Abfalls' => %w(Abtrennung Transmutation radioaktiv Abfall)
+    )
+
+    label = Iqvoc::XLLabel.base_class.find_by(value: 'Abtrennung und Transmutation radioaktiven Abfalls')
+    visit label_path(label, lang: 'en', format: 'html')
+
+    assert page.has_content? 'Abtrennung und Transmutation radioaktiven Abfalls'
+
+    within('#compound_forms') do |ref|
+      assert page.has_content? 'Compound from'
+      assert page.has_content? 'Abtrennung, Transmutation, radioaktiv, Abfall'
+    end
+
+    click_link_or_button 'Create new version'
+    assert page.has_content? 'Instance copy has been created and locked.'
+
+    # check form imput value
+    compound_form_origins = label.compound_form_contents.map {|cfc| cfc.label.origin}
+    compound_form_input_value = page.find('#label_inline_compound_form_origins_').value
+    assert_equal compound_form_origins.join(', '), compound_form_input_value
+
+    # remove last component (fill in first 3)
+    first_three_origins = compound_form_origins[0..2]
+    fill_in 'label_inline_compound_form_origins_', with: first_three_origins.join(', ')
+
+    # save changes
+    click_link_or_button 'Save'
+
+    assert page.has_content? 'Label has been successfully modified.'
+
+    within('#compound_forms') do |ref|
+      assert page.has_content? 'Compound from'
+      assert page.has_content? 'Abtrennung, Transmutation, radioaktiv'
+    end
+  end
+
+
+  test 'remove compound form completely from ui' do
+    create_compound_form_label(
+      'Hausmüllähnlicher Gewerbeabfall' => %w(Abfall hausmüllähnlich Gewerbe)
+    )
+
+    label = Iqvoc::XLLabel.base_class.find_by(value: 'Hausmüllähnlicher Gewerbeabfall')
+    visit label_path(label, lang: 'en', format: 'html')
+
+    assert page.has_content? 'Hausmüllähnlicher Gewerbeabfall'
+
+    within('#compound_forms') do |ref|
+      assert page.has_content? 'Compound from'
+      assert page.has_content? 'Abfall, hausmüllähnlich, Gewerbe'
+    end
+
+    click_link_or_button 'Create new version'
+    assert page.has_content? 'Instance copy has been created and locked.'
+
+    # clear compound forms completely
+    fill_in 'label_inline_compound_form_origins_', with: ''
+
+    # save changes
+    click_link_or_button 'Save'
+
+    assert page.has_content? 'Label has been successfully modified.'
+
+    within('#compound_forms') do |ref|
+      assert page.has_content? 'Compound from'
+      require 'pry'; binding.pry
+      refute page.has_content? 'Abfall, hausmüllähnlich, Gewerbe'
+    end
+  end
 end
