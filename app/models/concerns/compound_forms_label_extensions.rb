@@ -1,6 +1,8 @@
 # encoding: UTF-8
 
-module CompoundFormsLabelExtensions
+require "active_support/concern"
+
+module Iqvoc::CompoundForms::LabelExtensions
   extend ActiveSupport::Concern
 
   included do
