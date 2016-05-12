@@ -7,6 +7,11 @@ group :development, :test do
   gem 'pry-rails'
   gem 'awesome_print'
 
+  group :test do
+    gem 'capybara', '~> 2.2.1'
+    gem 'poltergeist', '~> 1.5.0'
+  end
+
   platforms :ruby do
     gem 'mysql2'
     gem 'sqlite3'
