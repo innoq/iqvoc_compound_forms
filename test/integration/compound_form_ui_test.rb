@@ -63,12 +63,8 @@ class CompoundFormUITest < ActionDispatch::IntegrationTest
     click_link_or_button 'Create new version'
     assert page.has_content? 'Instance copy has been created and locked.'
 
-    # check form imput value
-    compound_form_origins = label.compound_form_contents.map {|cfc| cfc.label.origin}
-    compound_form_input_value = page.find('#label_inline_compound_form_origins_').value
-    assert_equal compound_form_origins.join(', '), compound_form_input_value
-
     # remove last component (fill in first 3)
+    compound_form_origins = label.compound_form_contents.map {|cfc| cfc.label.origin}
     first_three_origins = compound_form_origins[0..2]
     fill_in 'label_inline_compound_form_origins_', with: first_three_origins.join(', ')
 
@@ -79,7 +75,7 @@ class CompoundFormUITest < ActionDispatch::IntegrationTest
 
     within('#compound_forms') do |ref|
       assert page.has_content? 'Compound from'
-      assert page.has_content? 'Abtrennung, Transmutation, radioaktiv'
+      assert page.has_content? 'Abtrennung, Transmutation, radioaktiv' # without 'Abfall'
     end
   end
 
@@ -112,7 +108,6 @@ class CompoundFormUITest < ActionDispatch::IntegrationTest
 
     within('#compound_forms') do |ref|
       assert page.has_content? 'Compound from'
-      require 'pry'; binding.pry
       refute page.has_content? 'Abfall, hausmüllähnlich, Gewerbe'
     end
   end
