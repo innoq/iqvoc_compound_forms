@@ -10,10 +10,10 @@ module CompoundFormsLabelExtensions
       # Compound forms
       # Only handle compound form creation if there are submitted widget values
       # Otherwise compound_forms would be destroyed on every save (e.g. in the branching process)!
-      if inline_compound_form_origins.any?
+      if @inline_compound_form_origins
         transaction do
           compound_forms.destroy_all
-          inline_compound_form_origins.each do |origin_collection|
+          @inline_compound_form_origins.each do |origin_collection|
             compound_form_contents = []
             origin_collection.each_with_index do |origin, index|
               if label = Iqvoc::XLLabel.base_class.editor_selectable.by_origin(origin).last
