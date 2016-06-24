@@ -33,3 +33,6 @@ deploy:
   on:
     tags: true
     repo: innoq/iqvoc_compound_forms
+matrix:
+  allow_failures:
+    - rvm: ruby-head
