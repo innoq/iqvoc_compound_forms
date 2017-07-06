@@ -38,7 +38,7 @@ class CompoundForm::Content::Base < ActiveRecord::Base
   end
 
   def self.edit_partial_name(obj)
-    "partials/compound_form/content/base" # Show data only
+    "partials/compound_form/content/base_no_header" # Show data only
   end
 
   def build_rdf(document, subject)
