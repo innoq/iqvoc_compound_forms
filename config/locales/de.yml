@@ -7,6 +7,7 @@ de:
         compound_form_contents_self_reference_error: Eine Zusammensetzung darf nicht auf das Haupt-Label verweisen.
     views:
       labels:
+        no_compound_forms: Nicht in Zusammensetzungen verwendet
         compound_from: Zusammengesetzt aus
         compound_in: Zusammengesetzt in
       widget:

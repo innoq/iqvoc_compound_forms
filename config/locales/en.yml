@@ -7,6 +7,7 @@ en:
         compound_form_contents_self_reference_error: A composition must not refer the main label.
     views:
       labels:
+        no_compound_forms: "Not used in compound forms"
         compound_from: Compound from
         compound_in: Compound in
       widget:
