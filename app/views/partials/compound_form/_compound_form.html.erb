@@ -3,7 +3,7 @@
           by_origin(compound_form.compound_form_contents.
               map { |cfc| cfc.label.origin }).load %>
   <% fieldname = "label[inline_compound_form_origins][]" %>
-  <%= f.form_group nil, :label => { :text => t('txt.common.type_to_search') } do %>
+  <%= f.form_group nil, :label => { :text => t('txt.views.labels.compound_from') } do %>
     <%= text_field_tag fieldname, items.map(&:origin).join(InlineDataHelper::JOINER),
           :class => "entity_select",
           :"data-query-url" => labels_path(:format => :json),
