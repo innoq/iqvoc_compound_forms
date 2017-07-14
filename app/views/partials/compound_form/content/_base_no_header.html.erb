@@ -1,15 +1,15 @@
-<div class='form-group'>
 <% compound_in = label.compound_in %>
-<%= label_tag t('txt.views.compound_in'), nil, class: 'control-label col-sm-2' %>
-<br />
-
-<ol class="col-sm-10 col-sm-offset-2">
-  <% if compound_in.any? %>
-    <% compound_in.each do |label| %>
-      <li><%= link_to(label.value, label_path(:id => label)) %></span></li>
-    <% end %>
-  <% else %>
-    <li><%= t('txt.views.labels.no_compound_forms') %></li>
-  <% end %>
-</ol>
+<div class="relation panel">
+  <h2><%= t('txt.views.compound_in') %></h2>
+  <div class="relation-body">
+    <ul>
+      <% if compound_in.any? %>
+        <% compound_in.each do |label| %>
+          <li><%= link_to(label.value, label_path(:id => label)) %></span></li>
+        <% end %>
+      <% else %>
+        <li><%= t('txt.views.labels.no_compound_forms') %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
