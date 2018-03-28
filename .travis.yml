@@ -1,14 +1,12 @@
 language: ruby
 cache: bundler
-bundler_args: "--without production --retry 3"
 bundler_args:
 rvm:
-# - 1.9.3
-- 2.0
 - 2.2
+- 2.3
+- 2.4
+- 2.5
 - ruby-head
-# - jruby-19mode
-# - jruby-head
 env:
 - DB=sqlite
 - DB=mysql
@@ -25,7 +23,10 @@ branches:
 notifications:
   email: true
   slack:
-    secure: gj0DGf9tUSBfLmjpjvwRuKiUojmWCtP4gfve3vEL1uZ0uzfjNAlibj4jxHO8w2/SNS4PcZ930batya4XoC5/rS19524pZ5brt++p4Xu295spoEqMVoeK+unl1L6ZrazvO5gJkraAqftxiJ2njwJ8OwJS33psXRLb/bZWcLAMb3A=
+    secure: cjByKgPesQK/vgLVIOPVZBqSchhIgX7wXyXsCqnS9gcJsqLaZWaC4pZ4iNXQ8m/shYsFa6EFoNfdGUKol2D26p0+eyji3Gol5r6VqPucGuQNU0jeHYc2fEgCm6EvcwtmIYY+cPL1xtFkOaaYvvzgWzI9A2DW3+ADjj45kDTGlwE=
+    on_success: change
+    on_failure: always
+    on_pull_requests: false
 deploy:
   provider: rubygems
   api_key:
@@ -36,4 +37,4 @@ deploy:
     repo: innoq/iqvoc_compound_forms
 matrix:
   allow_failures:
-    - rvm: ruby-head
+  - rvm: ruby-head
