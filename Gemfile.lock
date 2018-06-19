@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/innoq/iqvoc.git
-  revision: e09893f3eefe6bfd4ed9eb7f3e6cce1b6c5da941
+  revision: 666656c988ef8bd506bcc21f230df3f878d7faf0
   branch: master
   specs:
     iqvoc (4.12.0)
@@ -32,7 +32,7 @@ GIT
 
 GIT
   remote: git://github.com/innoq/iqvoc_skosxl.git
-  revision: c3c42bdd32c2bd5a2d41d592c14ddffb81903826
+  revision: 65b3827fd0fc9b7df13a9f5055a37bfc4797258b
   branch: master
   specs:
     iqvoc_skosxl (2.9.1)
@@ -101,7 +101,7 @@ GEM
       sass (~> 3.2)
     bootstrap_form (2.2.0)
     builder (3.2.3)
-    cancancan (2.1.3)
+    cancancan (2.2.0)
     capybara (2.2.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -116,12 +116,12 @@ GEM
     coderay (1.1.0)
     concurrent-ruby (1.0.5)
     concurrent-ruby (1.0.5-java)
-    crass (1.0.3)
-    database_cleaner (1.6.2)
-    delayed_job (4.1.4)
-      activesupport (>= 3.0, < 5.2)
-    delayed_job_active_record (4.1.2)
-      activerecord (>= 3.0, < 5.2)
+    crass (1.0.4)
+    database_cleaner (1.7.0)
+    delayed_job (4.1.5)
+      activesupport (>= 3.0, < 5.3)
+    delayed_job_active_record (4.1.3)
+      activerecord (>= 3.0, < 5.3)
       delayed_job (>= 3.0, < 5)
     ebnf (0.3.9)
       rdf (~> 1.1)
@@ -205,9 +205,9 @@ GEM
     multipart-post (2.0.0)
     mysql2 (0.3.17)
     net-http-persistent (2.9.4)
-    nokogiri (1.8.2)
+    nokogiri (1.8.3)
       mini_portile2 (~> 2.3.0)
-    nokogiri (1.8.2-java)
+    nokogiri (1.8.3-java)
     poltergeist (1.5.1)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -354,7 +354,7 @@ GEM
     tilt (2.0.8)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.8)
+    uglifier (4.1.11)
       execjs (>= 0.3.0, < 3)
     websocket-driver (0.6.3)
       websocket-extensions (>= 0.1.0)
