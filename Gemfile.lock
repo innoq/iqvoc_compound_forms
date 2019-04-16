@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/innoq/iqvoc.git
-  revision: 8927a7351e2c02d1c2fe2cf06194a056d9523232
+  revision: c4623d78ae77d9da6603c5aaf7702e90f771b9b0
   branch: master
   specs:
     iqvoc (4.12.0)
@@ -32,7 +32,7 @@ GIT
 
 GIT
   remote: git://github.com/innoq/iqvoc_skosxl.git
-  revision: 3e78187ba4ca1f5108a0901a74bb18f443a63519
+  revision: 1fd0164b9e3b10d04eae2fb7b60477b4346e535f
   branch: master
   specs:
     iqvoc_skosxl (2.9.1)
@@ -102,7 +102,7 @@ GEM
       sassc (>= 2.0.0)
     bootstrap_form (2.2.0)
     builder (3.2.3)
-    cancancan (3.0.0)
+    cancancan (3.0.1)
     capybara (2.2.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
