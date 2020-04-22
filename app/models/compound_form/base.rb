@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-class CompoundForm::Base < ActiveRecord::Base
+class CompoundForm::Base < ApplicationRecord
   class_attribute :rdf_namespace, :rdf_predicate
   self.rdf_namespace = 'iqvoc'
   self.rdf_predicate = 'compoundFrom'

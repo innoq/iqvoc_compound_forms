@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-class CompoundForm::Content::Base < ActiveRecord::Base
+class CompoundForm::Content::Base < ApplicationRecord
 
   self.table_name ='compound_form_contents'
 

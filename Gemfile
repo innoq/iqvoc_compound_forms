@@ -1,14 +1,20 @@
 source 'https://rubygems.org'
 
-gem 'iqvoc', '~> 4.12', :github => 'innoq/iqvoc', branch: 'master'
-gem 'iqvoc_skosxl', '~> 2.9.0', :github => 'innoq/iqvoc_skosxl', branch: 'master'
+gem 'iqvoc', '~> 4.12', :github => 'innoq/iqvoc', branch: 'rails-v5'
+gem 'iqvoc_skosxl', '~> 2.9.0', :github => 'innoq/iqvoc_skosxl', branch: 'rails-v5'
+
+group :development do
+  gem 'better_errors'
+  gem 'web-console'
+  gem 'listen'
+end
 
 group :development, :test do
   gem 'pry-rails'
 
   group :test do
-    gem 'capybara', '~> 2.2.1'
-    gem 'poltergeist', '~> 1.5.0'
+    gem 'capybara'
+    gem 'poltergeist'
   end
 
   platforms :ruby do
