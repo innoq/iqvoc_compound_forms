@@ -10,9 +10,10 @@ class CompoundForm::Base < ApplicationRecord
   belongs_to :domain, :class_name => 'Label::Base', :foreign_key => 'domain_id'
 
   has_many :compound_form_contents,
-    :class_name  => 'CompoundForm::Content::Base',
-    :foreign_key => 'compound_form_id',
-    :dependent   => :destroy
+           class_name: 'CompoundForm::Content::Base',
+           foreign_key: 'compound_form_id',
+           dependent: :destroy,
+           inverse_of: :compound_form
 
   def self.published
     includes(:domain).references(:labels).merge(Label::Base.published)

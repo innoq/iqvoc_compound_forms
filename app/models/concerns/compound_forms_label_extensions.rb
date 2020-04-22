@@ -29,14 +29,16 @@ module CompoundFormsLabelExtensions
     end
 
     has_many :compound_forms,
-        :class_name  => "CompoundForm::Base",
-        :foreign_key => "domain_id",
-        :dependent   => :destroy
+        class_name: "CompoundForm::Base",
+        foreign_key: "domain_id",
+        dependent: :destroy,
+        inverse_of: :domain
+
 
     has_many :compound_form_contents,
-        :through    => :compound_forms,
-        :class_name => "CompoundForm::Content::Base",
-        :dependent  => :destroy
+        through: :compound_forms,
+        class_name: "CompoundForm::Content::Base",
+        dependent: :destroy
 
     validate :compound_form_contents_size
     validate :compound_form_contents_languages
