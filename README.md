@@ -2,8 +2,7 @@
 
 ![CI](https://github.com/innoq/iqvoc_compound_forms/workflows/CI/badge.svg)
 
-Getting Started
-===============
+## Getting Started
 
 1. Initialize database:
 
