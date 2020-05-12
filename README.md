@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/innoq/iqvoc_compound_forms.svg?branch=master)](https://travis-ci.org/innoq/iqvoc_compound_forms)
-
 Compound forms for iQvoc
 
 Getting Started
