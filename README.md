@@ -1,6 +1,6 @@
-![CI](https://github.com/innoq/iqvoc_compound_forms/workflows/CI/badge.svg)
+# Compound forms for iQvoc
 
-Compound forms for iQvoc
+![CI](https://github.com/innoq/iqvoc_compound_forms/workflows/CI/badge.svg)
 
 Getting Started
 ===============
