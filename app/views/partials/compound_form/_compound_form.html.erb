@@ -11,7 +11,7 @@
           :"data-entities" => (not compound_form) ? nil : items.
               map { |l| label_widget_data(l) }.to_json %>
 
-              <input type="button" class="btn btn-default add-compound-form" value="<%= t("txt.common.add_note") %>">
-              <input type="button" class="btn btn-default rm-compound-form" value="<%= t("txt.common.delete") %>">
+              <input type="button" class="btn btn-outline-secondary add-compound-form" value="<%= t("txt.common.add_note") %>">
+              <input type="button" class="btn btn-outline-secondary rm-compound-form" value="<%= t("txt.common.delete") %>">
   <% end %>
 </div>
