@@ -62,7 +62,9 @@ class CompoundForm::Base < ApplicationRecord
   end
 
   def build_rdf(document, subject)
-    subject.send(rdf_namespace).send(rdf_predicate, compound_form_contents.map {|cfc| IqRdf::build_uri(cfc.label.origin) })
+    if compound_form_contents.any?
+      subject.send(rdf_namespace).send(rdf_predicate, compound_form_contents.map {|cfc| IqRdf::build_uri(cfc.label.origin) })
+    end
   end
 
   private
