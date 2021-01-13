@@ -1,0 +1,32 @@
+{
+  "name": "iqvoc_compound_forms",
+  "version": "2.9.0",
+  "description": "Compound from extension for iQvoc SKOS-XL vocabulary management system built on the Semantic Web",
+  "files": [
+    "app/assets/**/*"
+  ],
+  "scripts": {
+    "watch": "faucet --watch",
+    "compile": "faucet --compact --fingerprint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/innoq/iqvoc_compound_forms.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/innoq/iqvoc_compound_forms/issues"
+  },
+  "homepage": "https://github.com/innoq/iqvoc_compound_forms#readme",
+  "devDependencies": {
+    "faucet-pipeline-js": "^2.1.7",
+    "faucet-pipeline-jsmin": "^2.1.7",
+    "faucet-pipeline-sass": "^1.4.0",
+    "faucet-pipeline-static": "^1.2.0"
+  },
+  "dependencies": {
+    "iqvoc": "github:innoq/iqvoc#faucet",
+    "iqvoc_skosxl": "github:innoq/iqvoc_skosxl#faucet"
+  }
+}
