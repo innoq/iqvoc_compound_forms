@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'iqvoc', '~> 4.12', :github => 'innoq/iqvoc', branch: 'faucet'
-gem 'iqvoc_skosxl', '~> 2.9.0', :github => 'innoq/iqvoc_skosxl', branch: 'faucet'
+gem 'iqvoc', '~> 4.12', github: 'innoq/iqvoc', branch: 'master'
+gem 'iqvoc_skosxl', '~> 2.9.0', github: 'innoq/iqvoc_skosxl', branch: 'master'
 
 group :development do
   gem 'better_errors'
