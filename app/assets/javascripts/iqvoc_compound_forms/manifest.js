@@ -1,1 +1,1 @@
-//= require iqvoc_compound_forms/compound_forms
+import './compound_forms';
