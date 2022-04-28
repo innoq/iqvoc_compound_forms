@@ -1,5 +1,5 @@
 # Load the Rails application.
-require_relative 'application'
+require_relative "application"
 
 # Initialize the Rails application.
-Iqvoc::CompoundForms::Application.initialize!
+Rails.application.initialize!

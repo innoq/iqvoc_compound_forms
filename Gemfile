@@ -18,13 +18,9 @@ group :development, :test do
   end
 
   platforms :ruby do
-    gem 'pg', '~> 0.21'
-    #gem 'mysql2'
-    #gem 'sqlite3'
+    gem 'pg'
   end
   platforms :jruby do
     gem 'activerecord-jdbcpostgresql-adapter'
-    #gem 'activerecord-jdbcmysql-adapter'
-    #gem 'activerecord-jdbcsqlite3-adapter'
   end
 end
