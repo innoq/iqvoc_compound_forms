@@ -26,7 +26,7 @@
     "faucet-pipeline-static": "^1.2.0"
   },
   "dependencies": {
-    "iqvoc": "github:innoq/iqvoc#faucet",
-    "iqvoc_skosxl": "github:innoq/iqvoc_skosxl#faucet"
+    "iqvoc": "github:innoq/iqvoc",
+    "iqvoc_skosxl": "github:innoq/iqvoc_skosxl"
   }
 }
