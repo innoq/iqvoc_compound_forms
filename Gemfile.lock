@@ -35,7 +35,7 @@ GIT
 
 GIT
   remote: https://github.com/innoq/iqvoc_skosxl.git
-  revision: ab526911c8d041323308ebb83d22db6b7ba3c614
+  revision: b498c9bc945386ebde6f266b07b0a8bc332f2074
   branch: master
   specs:
     iqvoc_skosxl (2.10.0)
@@ -288,7 +288,7 @@ GEM
       sparql (~> 3.2, >= 3.2.4)
       sparql-client (~> 3.2, >= 3.2.1)
       yaml-ld (~> 0.0)
-    listen (3.2.1)
+    listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.5.3)
@@ -553,4 +553,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   2.3.26
+   2.4.10
