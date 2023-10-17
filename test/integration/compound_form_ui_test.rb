@@ -61,7 +61,7 @@ class CompoundFormUITest < ActionDispatch::IntegrationTest
     end
 
     click_link_or_button 'Create new version'
-    assert page.has_content? 'Instance copy has been created and locked.'
+    assert page.has_content? 'Instance copy has been created.'
 
     # remove last component (fill in first 3)
     compound_form_origins = label.compound_form_contents.map {|cfc| cfc.label.origin}
@@ -96,7 +96,7 @@ class CompoundFormUITest < ActionDispatch::IntegrationTest
     end
 
     click_link_or_button 'Create new version'
-    assert page.has_content? 'Instance copy has been created and locked.'
+    assert page.has_content? 'Instance copy has been created.'
 
     # clear compound forms completely
     fill_in 'label_inline_compound_form_origins_', with: ''
