@@ -37,8 +37,7 @@ module CompoundFormsLabelExtensions
 
     has_many :compound_form_contents,
         through: :compound_forms,
-        class_name: "CompoundForm::Content::Base",
-        dependent: :destroy
+        class_name: "CompoundForm::Content::Base"
 
     validate :compound_form_contents_size
     validate :compound_form_contents_languages

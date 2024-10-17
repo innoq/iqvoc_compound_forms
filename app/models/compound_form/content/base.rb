@@ -4,8 +4,13 @@ class CompoundForm::Content::Base < ApplicationRecord
 
   self.table_name ='compound_form_contents'
 
-  belongs_to :compound_form, :class_name => 'CompoundForm::Base', :foreign_key => 'compound_form_id'
-  belongs_to :label,         :class_name => 'Label::Base', :foreign_key => 'label_id'
+  belongs_to :compound_form,
+             class_name: 'CompoundForm::Base',
+             foreign_key: 'compound_form_id'
+
+  belongs_to :label,
+             class_name: 'Label::Base',
+             foreign_key: 'label_id'
 
   def self.label_published
     includes(:label).references(:labels).merge(Label::Base.published)

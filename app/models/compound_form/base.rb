@@ -2,12 +2,15 @@
 
 class CompoundForm::Base < ApplicationRecord
   class_attribute :rdf_namespace, :rdf_predicate
+
   self.rdf_namespace = 'iqvoc'
   self.rdf_predicate = 'compoundFrom'
 
   self.table_name ='compound_forms'
 
-  belongs_to :domain, :class_name => 'Label::Base', :foreign_key => 'domain_id'
+  belongs_to :domain,
+             class_name: 'Label::Base',
+             foreign_key: 'domain_id'
 
   has_many :compound_form_contents,
            class_name: 'CompoundForm::Content::Base',
