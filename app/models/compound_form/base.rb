@@ -47,11 +47,11 @@ class CompoundForm::Base < ApplicationRecord
   end
 
   def self.build_from_rdf(rdf_subject, rdf_predicate, rdf_object)
-    unless rdf_subject.is_a? Label::SKOSXL::Base
-      raise "#{self.name}#build_from_rdf: Subject (#{rdf_subject}) must be a 'Label::SKOSXL::Base'"
+    unless rdf_subject.is_a? Label::Skosxl::Base
+      raise "#{self.name}#build_from_rdf: Subject (#{rdf_subject}) must be a 'Label::Skosxl::Base'"
     end
 
-    target_class = RDFAPI::PREDICATE_DICTIONARY[rdf_predicate] || self
+    target_class = RdfApi::PREDICATE_DICTIONARY[rdf_predicate] || self
 
     ActiveRecord::Base.transaction do
       begin
@@ -78,7 +78,7 @@ class CompoundForm::Base < ApplicationRecord
         when String # normal
           if obj.last =~ /^:(.*)$/
             # we are responsible for this (e.g. :computer-de)
-            label = Iqvoc::XLLabel.base_class.by_origin(obj.last[1..-1]).last # find label by origin, strip out leading ':'
+            label = Iqvoc::Xllabel.base_class.by_origin(obj.last[1..-1]).last # find label by origin, strip out leading ':'
 
             if label
               CompoundForm::Content::Base.create(label: label, compound_form: compound_form)

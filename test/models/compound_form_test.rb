@@ -48,7 +48,7 @@ class CompoundFormTest < ActiveSupport::TestCase
       [term] + components
     }.flatten
     labels = terms.map { |term|
-      Iqvoc::XLLabel.base_class.create!(:value => term,
+      Iqvoc::Xllabel.base_class.create!(:value => term,
           "language" => Iqvoc::Concept.pref_labeling_languages.first,
           "published_at" => 2.days.ago)
     }

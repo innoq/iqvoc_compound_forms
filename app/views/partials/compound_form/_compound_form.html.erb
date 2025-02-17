@@ -1,5 +1,5 @@
 <div class="compound-form">
-  <% items = Iqvoc::XLLabel.base_class.editor_selectable.
+  <% items = Iqvoc::Xllabel.base_class.editor_selectable.
           by_origin(compound_form.compound_form_contents.
               map { |cfc| cfc.label.origin }).load %>
   <% fieldname = "label[inline_compound_form_origins][]" %>

@@ -16,7 +16,7 @@ module CompoundFormsLabelExtensions
           @inline_compound_form_origins.each do |origin_collection|
             compound_form_contents = []
             origin_collection.each_with_index do |origin, index|
-              if label = Iqvoc::XLLabel.base_class.editor_selectable.by_origin(origin).last
+              if label = Iqvoc::Xllabel.base_class.editor_selectable.by_origin(origin).last
                 compound_form_contents << CompoundForm::Content::Base.new(:label => label, :order => index)
               end
             end

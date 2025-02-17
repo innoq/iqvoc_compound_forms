@@ -27,7 +27,7 @@ class CompoundFormUITest < ActionDispatch::IntegrationTest
       'Luftreinhaltungskosten' => %w(Luft Reinhaltung Kosten)
     )
 
-    label = Iqvoc::XLLabel.base_class.find_by(value: 'Luftreinhaltungskosten')
+    label = Iqvoc::Xllabel.base_class.find_by(value: 'Luftreinhaltungskosten')
     visit label_path(label, lang: 'en', format: 'html')
 
     assert page.has_content? 'Luftreinhaltungskosten'
@@ -50,7 +50,7 @@ class CompoundFormUITest < ActionDispatch::IntegrationTest
       'Abtrennung und Transmutation radioaktiven Abfalls' => %w(Abtrennung Transmutation radioaktiv Abfall)
     )
 
-    label = Iqvoc::XLLabel.base_class.find_by(value: 'Abtrennung und Transmutation radioaktiven Abfalls')
+    label = Iqvoc::Xllabel.base_class.find_by(value: 'Abtrennung und Transmutation radioaktiven Abfalls')
     visit label_path(label, lang: 'en', format: 'html')
 
     assert page.has_content? 'Abtrennung und Transmutation radioaktiven Abfalls'
@@ -85,7 +85,7 @@ class CompoundFormUITest < ActionDispatch::IntegrationTest
       'Hausmüllähnlicher Gewerbeabfall' => %w(Abfall hausmüllähnlich Gewerbe)
     )
 
-    label = Iqvoc::XLLabel.base_class.find_by(value: 'Hausmüllähnlicher Gewerbeabfall')
+    label = Iqvoc::Xllabel.base_class.find_by(value: 'Hausmüllähnlicher Gewerbeabfall')
     visit label_path(label, lang: 'en', format: 'html')
 
     assert page.has_content? 'Hausmüllähnlicher Gewerbeabfall'
