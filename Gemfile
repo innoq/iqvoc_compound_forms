@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'iqvoc', '~> 4.14.4', github: 'innoq/iqvoc', branch: 'rails-8'
-gem 'iqvoc_skosxl', '~> 2.11.3', github: 'innoq/iqvoc_skosxl', branch: 'rails-8'
+gem 'iqvoc', '~> 4.14.4', github: 'innoq/iqvoc', branch: :main
+gem 'iqvoc_skosxl', '~> 2.11.3', github: 'innoq/iqvoc_skosxl', branch: :main
 
 platforms :ruby do
   gem 'pg'

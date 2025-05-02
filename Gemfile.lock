@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/innoq/iqvoc.git
-  revision: 038e5e682fafe5ec8f232bd0dd9adec230befb76
-  branch: rails-8
+  revision: 5032a24f4ab48a61b56557ed048573729e83868b
+  branch: main
   specs:
     iqvoc (4.14.5)
       apipie-rails
@@ -35,8 +35,8 @@ GIT
 
 GIT
   remote: https://github.com/innoq/iqvoc_skosxl.git
-  revision: 5af8dd1639741919a2d191a2f3d08a759be49c32
-  branch: rails-8
+  revision: 4d2aac1bf3a70464151ad8abfdaa9a0b13fe1044
+  branch: main
   specs:
     iqvoc_skosxl (2.11.4)
       iqvoc (~> 4.14.5)
