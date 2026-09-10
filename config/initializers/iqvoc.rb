@@ -7,8 +7,9 @@ require 'iqvoc/xllabel'
 Iqvoc.config.register_setting("title", "iQvoc Compound Forms")
 
 Iqvoc::Xllabel.additional_association_class_names.
-    merge!("CompoundForm::Base" => "domain_id",
-        "CompoundForm::Content::Base" => "label_id") # used for the reverse direction ("compound_in")
+    merge!("CompoundForm::Base" => { foreign_key: "domain_id", inverse_of: :domain },
+        # used for the reverse direction ("compound_in")
+        "CompoundForm::Content::Base" => { foreign_key: "label_id", inverse_of: :label })
 
 Iqvoc::Xllabel.view_sections += ["compound_forms"]
 
