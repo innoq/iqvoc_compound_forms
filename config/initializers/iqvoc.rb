@@ -7,7 +7,12 @@ require 'iqvoc/xllabel'
 Iqvoc.config.register_setting("title", "iQvoc Compound Forms")
 
 Iqvoc::Xllabel.additional_association_class_names.
-    merge!("CompoundForm::Base" => { foreign_key: "domain_id", inverse_of: :domain },
+    merge!("CompoundForm::Base" => {
+            foreign_key: "domain_id",
+            inverse_of: :domain,
+            # build_rdf reaches through the contents to their labels
+            preload: { compound_form_contents: :label }
+        },
         # used for the reverse direction ("compound_in")
         "CompoundForm::Content::Base" => { foreign_key: "label_id", inverse_of: :label })
 
