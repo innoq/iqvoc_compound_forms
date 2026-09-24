@@ -2,12 +2,14 @@
   "name": "iqvoc_compound_forms",
   "version": "2.11.4",
   "description": "Compound from extension for iQvoc SKOS-XL vocabulary management system built on the Semantic Web",
+  "main": "app/javascript/manifest.js",
   "files": [
-    "app/assets/**/*"
+    "app/assets/**/*",
+    "app/javascript/**/*"
   ],
   "scripts": {
-    "watch": "faucet --watch",
-    "compile": "faucet --compact --fingerprint"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
+    "build:css": "sass ./app/assets/stylesheets/application.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
   },
   "repository": {
     "type": "git",
@@ -20,13 +22,11 @@
   },
   "homepage": "https://github.com/innoq/iqvoc_compound_forms#readme",
   "devDependencies": {
-    "faucet-pipeline-js": "^2.1.7",
-    "faucet-pipeline-jsmin": "^2.1.7",
-    "faucet-pipeline-sass": "^1.6.0",
-    "faucet-pipeline-static": "^1.2.0"
+    "esbuild": "^0.24.0",
+    "sass": "^1.80.0"
   },
   "dependencies": {
-    "iqvoc": "github:innoq/iqvoc",
-    "iqvoc_skosxl": "github:innoq/iqvoc_skosxl"
+    "iqvoc": "github:innoq/iqvoc#bootstrap5",
+    "iqvoc_skosxl": "github:innoq/iqvoc_skosxl#bootstrap5"
   }
 }
