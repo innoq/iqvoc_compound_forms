@@ -1,6 +1,6 @@
 {
   "name": "iqvoc_compound_forms",
-  "version": "2.11.4",
+  "version": "2.13.0",
   "description": "Compound from extension for iQvoc SKOS-XL vocabulary management system built on the Semantic Web",
   "main": "app/javascript/manifest.js",
   "files": [
