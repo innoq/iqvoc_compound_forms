@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'iqvoc', '~> 4.16.0', github: 'innoq/iqvoc', branch: :main
-gem 'iqvoc_skosxl', '~> 2.12.0', github: 'innoq/iqvoc_skosxl', branch: :main
+gem 'iqvoc', '~> 4.17.0', github: 'innoq/iqvoc'
+gem 'iqvoc_skosxl', '~> 2.13.0', github: 'innoq/iqvoc_skosxl'
 
 platforms :ruby do
   gem 'pg'
@@ -12,7 +12,6 @@ end
 
 group :development do
   gem 'web-console'
-  gem 'listen'
 end
 
 group :development, :test do
